@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block content %}
+    <div style="display: flex; width: 100vw; align-items: center; justify-content: center;">
+        <div class="nes-container with-title is-centered" style="width: 50vw;">
+            <p class="title">New Game</p>
+            <form method="post">
+                {% csrf_token %}
+            <!-- Title Field -->
+                <div class="nes-field" >
+                    <label for="{{ form.title.id_for_label }}">Title</label>
+                    {{ form.title }}
+                </div>
+
+            <!-- Rating Field -->
+                <div class="nes-field" >
+                    <label for="{{ form.rating.id_for_label }}">Rating</label>
+                    {{ form.rating }}
+                </div>
+
+            <!-- Genre Field (Single Dropdown) -->
+                <div class="nes-field" >
+                    <label for="{{ form.genre.id_for_label }}">Genre</label>
+                    <div class="nes-select">
+                        {{ form.genre }}
+                    </div>
+                </div>
+
+            <!-- Release Date Field -->
+                <div class="nes-field" >
+                    <label for="{{ form.release_date.id_for_label }}">Release Date</label>
+                    {{ form.release_date }}
+                </div>
+
+            <!-- Submit Button -->
+                <button type="submit" class="nes-btn is-primary" style="margin-top: 50px;">Submit</button>
+            </form>
+        </div>
+    </div>
+{%endblock%}

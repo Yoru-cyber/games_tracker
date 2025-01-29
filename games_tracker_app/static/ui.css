@@ -1,17 +1,26 @@
+.nes-input {
+  border-image-repeat: stretch;
+}
+.nes-select select {
+  border-image-repeat: stretch;
+}
+.nes-btn {
+  border-image-repeat: stretch;
+}
 .navbar {
   display: flex;
   width: 100vw;
   ul {
     margin: 0px;
     padding: 0px;
-    font-size:x-large;
+    font-size: x-large;
     width: 100%;
     display: flex;
     flex-direction: row;
     list-style: none;
     align-content: center;
   }
-  li{
+  li {
     margin: 5px 5px;
   }
 }
