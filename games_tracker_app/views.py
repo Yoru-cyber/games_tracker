@@ -37,3 +37,15 @@ def delete_game(request, game_id):
     if request.method == "POST":
         game.delete()
         return redirect("list_games")
+
+
+def update_game(request, game_id):
+    game = get_object_or_404(Game, id=game_id)
+    if request.method == "POST":
+        form = GameForm(request.POST, None, instance=game)
+        if form.is_valid():
+            form.save()
+            return redirect("list_games")
+    else:
+        form = GameForm(instance=game)
+        return render(request, "update_game.html", {"form": form})

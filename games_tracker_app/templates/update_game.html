@@ -2,7 +2,7 @@
 {%block content %}
     <div style="display: flex; width: 100vw; align-items: center; justify-content: center;">
         <div class="nes-container with-title is-centered" style="width: 50vw;">
-            <p class="title">New Game</p>
+            <p class="title">Update Game</p>
             <form method="post">
                 {% csrf_token %}
             <!-- Title Field -->
@@ -28,6 +28,7 @@
                 </div>
 
 
+
                 <div style="display: flex;width: 100%; justify-content: center; align-items: center;">
 
     <!-- Release Date Field -->
@@ -40,7 +41,6 @@
                         {{ form.status }}
                     </div>
                 </div>
-
             <!-- Submit Button -->
                 <button type="submit" class="nes-btn is-primary" style="margin-top: 50px;">Submit</button>
             </form>

@@ -15,6 +15,7 @@
             <th>#</th>
             <th>Title</th>
             <th>Status</th>
+            <th>Genre</th>
             <th>Rating</th>
             <th>Release Date</th>
             <th>Actions</th>
@@ -26,6 +27,7 @@
               <td>{{game.id}}</td>
               <td>{{game.title}}</td>
               <td>{{game.status}}</td>
+              <td>{{game.genre}}</td>
               <td>{{game.rating}}</td>
               <td>{{game.release_date}}</td>
               <td>
@@ -40,7 +42,7 @@
                       Delete
                     </button>
                   </form>
-                  <a href="" class="nes-btn is-warning">
+                  <a href="{% url 'update_game' game.id%}" class="nes-btn is-warning">
                     Edit
                   </a>
                 </div>
