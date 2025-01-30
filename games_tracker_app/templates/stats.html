@@ -1,0 +1,25 @@
+{%extends 'base.html'%}
+{%block content %}
+<div style="display: flex; align-items: center; justify-content: space-evenly; width: 100vw;">
+<div style="width: 25%;">
+    <div class="nes-container with-title is-centered" style="margin-bottom: 10px;">
+        <p class="title">Total Games</p>
+        <p>{{data.total}}</p>
+    </div>
+    <div class="nes-container with-title is-centered">
+        <p class="title">Currently Playing</p>
+        <p>{{data.playing}}</p>
+    </div>
+</div>
+<div style="width: 25%;">
+    <div class="nes-container with-title is-centered" style="margin-bottom: 10px;">
+        <p class="title">Plan to Play</p>
+        <p>{{data.plan_to_play}}</p>
+    </div>
+    <div class="nes-container with-title is-centered">
+        <p class="title">Finished</p>
+        <p>{{data.finished}}</p>
+    </div>
+</div>
+</div>
+{%endblock%}

@@ -1,7 +1,7 @@
 from django.http import HttpResponse, request
 from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
-
+from django.db.models import Count, When, Sum, Case
 from games_tracker_app.forms import GameForm
 from games_tracker_app.models import Game
 
@@ -49,3 +49,18 @@ def update_game(request, game_id):
     else:
         form = GameForm(instance=game)
         return render(request, "update_game.html", {"form": form})
+
+
+def stats(request):
+    results = (
+        Game.objects.values("id")
+        .annotate(
+            total=Count("*"),
+            playing=Sum(Case(When(status="PLAYING", then=1), default=0)),
+            plan_to_play=Sum(Case(When(status="PLANTOPLAY", then=1), default=0)),
+            finished=Sum(Case(When(status="FINISHED", then=1), default=0)),
+        )
+        .order_by("id")
+    )
+    data = {"total": results[0].get("total"), "playing": results[0].get("playing"), "plan_to_play": results[0].get("play_to_play"), "finished": results[0].get("finished")}
+    return render(request, "stats.html", {"data": data})
