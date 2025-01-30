@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
-        <nav class="navbar"><ul><li><a href="{% url 'tracker_home'%}">Home</a></li><li>Test</li></ul></nav>
+        <nav class="navbar"><ul><li><a href="{% url 'tracker_home'%}">Home</a></li><li><a href="{%url 'list_games'%}">Games</a></li></ul></nav>
         <main >{% block content %} {% endblock %}</main>
     </body>
 </html>

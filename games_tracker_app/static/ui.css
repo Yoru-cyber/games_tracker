@@ -7,6 +7,9 @@
 .nes-btn {
   border-image-repeat: stretch;
 }
+.nes-table.is-bordered {
+  border-image-repeat: stretch;
+}
 .navbar {
   display: flex;
   width: 100vw;
