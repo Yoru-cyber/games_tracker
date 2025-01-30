@@ -4,10 +4,15 @@ from django.db import models
 
 
 class Game(models.Model):
+    STATUS_CHOICES = (
+        ("FINISHED", "Finished"),
+        ("PLAYING", "Playing"),
+        ("PLANTOPLAY", "Plan to Play"),
+    )
     GENRE_CHOICES = (
         ("ACTION", "Action"),
         ("ADVENTURE", "Adventure"),
-        ("RPG", "Role-Playing Game (RPG)"),
+        ("RPG", "Role-Playing Game"),
         ("JRPG", "Japanese Role-Playing Game"),
         ("STRATEGY", "Strategy"),
         ("SIMULATION", "Simulation"),
@@ -29,5 +34,6 @@ class Game(models.Model):
     )
     title = models.CharField(max_length=30)
     rating = models.IntegerField()
+    status = models.CharField(max_length=30, choices=STATUS_CHOICES, default="OTHER")
     genre = models.CharField(max_length=30, choices=GENRE_CHOICES, default="OTHER")
     release_date = models.DateField()
